@@ -26,7 +26,7 @@ For a full example see [example.c](example.c) and the library it loads: [test_li
 `dyn_open` opens a library and returns its handle or `NULL` on error.
 
 ```c
-void *lib = dyn_open("test_lib.so");
+DLHANDLE lib = dyn_open("test_lib.so");
 
 if (lib) {
     // [do something with it and close the handle afterwards]

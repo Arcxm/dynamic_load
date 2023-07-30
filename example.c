@@ -7,7 +7,7 @@ typedef int (*test_add_t)(int, int);
 
 int main(void) {
     // Open library handle
-    void *lib = dyn_open("test_lib.so");
+    DLHANDLE lib = dyn_open("test_lib.so");
 
     if (lib) {
         // Please note that I have skipped checking the 2 symbols against 'NULL' for simplicity

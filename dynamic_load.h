@@ -1,4 +1,4 @@
-/* dynamic_load: v1.0 by Marc Specht
+/* dynamic_load: v1.1 by Marc Specht
 
     no warranty implied; use at your own risk
 
@@ -19,6 +19,7 @@ LICENSE
 
 REVISION HISTORY:
 
+    v1.1 (2023-07-30) Add typedef for the library handle
     v1.0 (2023-07-30) First release
 
 */
@@ -47,15 +48,17 @@ REVISION HISTORY:
 // dynamic_load interface
 //
 
-void *dyn_open(const char *filename);
-void *dyn_sym(void *dyn_handle, const char *symbol);
-int dyn_close(void *dyn_handle);
+typedef void *DLHANDLE;
+
+DLHANDLE dyn_open(const char *filename);
+void *dyn_sym(DLHANDLE dyn_handle, const char *symbol);
+int dyn_close(DLHANDLE dyn_handle);
 
 #endif // _DYNAMIC_LOAD_H
 
 #ifdef DYNAMIC_LOAD_IMPLEMENTATION
 
-void *dyn_open(const char *filename) {
+DLHANDLE dyn_open(const char *filename) {
     #ifdef _WIN32
         return LoadLibraryA(filename);
     #endif // _WIN32
@@ -66,7 +69,7 @@ void *dyn_open(const char *filename) {
     #endif // linux
 }
 
-void *dyn_sym(void *dyn_handle, const char *symbol) {
+void *dyn_sym(DLHANDLE dyn_handle, const char *symbol) {
     #ifdef _WIN32
         return (void*) GetProcAddress((HMODULE) dyn_handle, symbol);
     #endif // _WIN32
@@ -76,7 +79,7 @@ void *dyn_sym(void *dyn_handle, const char *symbol) {
     #endif // linux
 }
 
-int dyn_close(void *dyn_handle) {
+int dyn_close(DLHANDLE dyn_handle) {
     #ifdef _WIN32
         return FreeLibrary((HMODULE) dyn_handle);
     #endif // _WIN32

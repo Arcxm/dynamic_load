@@ -2,6 +2,8 @@
 
 `dynamic_load` is a public domain single header C/C++ library to dynamically load libraries at runtime.
 
+It supports Windows and Linux, using `dlopen` on Linux and `LoadLibrary` on Windows.
+
 ## Quick Start
 
 Just include the header in your project and you're ready to go.

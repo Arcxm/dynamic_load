@@ -15,6 +15,10 @@ To create the implementation in a file, simply define `DYNAMIC_LOAD_IMPLEMENTATI
 
 ## Documentation
 
+### Example
+
+For a full example see [example.c](example.c) and the library it loads: [test_lib.c](test_lib.c).
+
 ### dyn_open
 
 `dyn_open` opens a library and returns its handle or `NULL` on error.

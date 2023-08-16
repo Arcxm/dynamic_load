@@ -1,4 +1,4 @@
-/* dynamic_load: v1.1 by Marc Specht
+/* dynamic_load: v1.2 by Marc Specht
 
     no warranty implied; use at your own risk
 
@@ -19,6 +19,7 @@ LICENSE
 
 REVISION HISTORY:
 
+    v1.2 (2023-08-17) Add documentation to header
     v1.1 (2023-07-30) Add typedef for the library handle
     v1.0 (2023-07-30) First release
 
@@ -28,6 +29,24 @@ REVISION HISTORY:
 #define _DYNAMIC_LOAD_H
 
 // DOCUMENTATION
+//
+// Functions
+//
+// dyn_open
+//  opens a library and returns its handle or 'NULL' on error
+//
+// dyn_sym
+//  looks up and returns the address of a symbol (variable or function) or 'NULL' if it was not found
+//
+// dyn_close
+//  closes a previously opened handle to a library
+//
+// Tip
+//
+// Use a typedef for functions e.g.:
+//
+// typedef int (*test_add_t)(int, int);
+// test_add_t lib_add = (test_add_t) dyn_sym(lib, "test_add");
 //
 
 ////////////////////////////////////

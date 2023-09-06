@@ -1,4 +1,4 @@
-/* dynamic_load: v1.2 by Marc Specht
+/* dynamic_load: v1.2.1 by Marc Specht
 
     no warranty implied; use at your own risk
 
@@ -13,15 +13,19 @@
     #define DYNAMIC_LOAD_IMPLEMENTATION
     #include "dynamic_load.h"
 
+NOTES
+    Please note that you'll have to link to '-ldl' on Linux.
+
 LICENSE
 
     See end of file for license information.
 
 REVISION HISTORY:
 
-    v1.2 (2023-08-17) Add documentation to header
-    v1.1 (2023-07-30) Add typedef for the library handle
-    v1.0 (2023-07-30) First release
+    v1.2.1 (2023-09-06) Add notes for linux to header
+    v1.2   (2023-08-17) Add documentation to header
+    v1.1   (2023-07-30) Add typedef for the library handle
+    v1.0   (2023-07-30) First release
 
 */
 

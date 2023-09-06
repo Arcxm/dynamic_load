@@ -15,6 +15,10 @@ To create the implementation in a file, simply define `DYNAMIC_LOAD_IMPLEMENTATI
 #include "dynamic_load.h"
 ```
 
+### Notes for Linux
+
+Please note that for Linux you'll have to link to `-ldl`.
+
 ## Documentation
 
 ### Example
